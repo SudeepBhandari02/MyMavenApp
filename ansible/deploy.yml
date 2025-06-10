@@ -1,0 +1,8 @@
+---
+- name: Deploy maven artifact
+  hosts: local
+  tasks: 
+    - name: Copy the maven artifact to deployment directory
+      copy: 
+        src: "{{lookup('env','WORKSPACE')}}/target/MyMavenApp-1.0-SNAPSHOT.jar"
+        dest: "/opt/deployment/MyMavenApp.jar"
